@@ -97,8 +97,11 @@ exec "highlight Function ctermfg=" . s:light_blue.term . " guifg=" . s:light_blu
 " Strings.
 exec "highlight String ctermfg=" . s:wheat.term . " guifg=" . s:wheat.hex
 
+" Booleans.
+exec "highlight Boolean ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
+
 " Identifiers.
-exec "highlight Identifier ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
+exec "highlight Identifier ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex . " cterm=none"
 
 " Color of titles, e.g in HTML files and Tagbar.
 exec "highlight Title ctermfg=" . s:orange.term . " guifg=" . s:orange.hex . " gui=none"
@@ -111,6 +114,9 @@ exec "highlight Type ctermfg=" . s:emerald.term . " guifg=" . s:emerald.hex . " 
 
 " Numbers.
 exec "highlight Constant ctermfg=" . s:purple.term . " guifg=" . s:purple.hex
+
+" Exceptions.
+exec "highlight Exception ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
 
 " ifdef/endif.
 exec "highlight PreProc ctermfg=" . s:violet.term . " guifg=" . s:violet.hex
@@ -152,16 +158,13 @@ exec "highlight Visual ctermbg=" . s:grey0.term . " guibg=" . s:grey0.hex
 exec "highlight VisualNOS ctermbg=" . s:grey0.term . " guibg=" . s:grey0.hex . " ctermfg=fg guifg=fg cterm=none gui=none"
 exec "highlight VisualInDiff ctermbg=" . s:grey0.term . " guibg=" . s:grey0.hex . " ctermfg=" . s:white.term . " guifg=" . s:white.hex
 
-" Exceptions.
-exec "highlight Exception ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
-
 " Errors, warnings and s:whitespace-eol.
 exec "highlight Error ctermbg=bg guibg=bg ctermfg=" . s:red.term . " guifg=" . s:red.hex
 exec "highlight ErrorMsg ctermbg=bg guibg=bg ctermfg=" . s:red.term . " guifg=" . s:red.hex
 exec "highlight WarningMsg ctermbg=bg guibg=bg ctermfg=" . s:orange.term . " guifg=" . s:orange.hex
 
 " struct, union, enum, typedef.
-exec "highlight Structure ctermfg=" . s:emerald.term . " guifg=" . s:emerald.hex
+exec "highlight Structure ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
 
 " Auto-text-completion menu.
 exec "highlight Pmenu ctermbg=" . s:grey236.term . " guibg=" . s:grey236.hex . " ctermfg=fg guifg=fg"
@@ -235,10 +238,12 @@ exec "highlight cppAccess ctermfg=" . s:light_green.term . " guifg=" . s:light_g
 exec "highlight cppOperator ctermfg=" . s:green.term . " guifg=" . s:green.hex
 " inline, virtual, explicit, export, bool.
 exec "highlight cppType ctermfg=" . s:khaki.term . " guifg=" . s:khaki.hex
-" class, typename, template, namespace.
-exec "highlight cppStructure ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
+" struct, union, enum, typedef.
+exec "highlight cStructure ctermfg=" . s:emerald.term . " guifg=" . s:emerald.hex
 " true or false.
 exec "highlight cppBoolean ctermfg=" . s:purple.term . " guifg=" . s:purple.hex
+" throw, try, catch
+exec "highlight cppExceptions ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
 
 " Shell scripts
 exec "highlight shStatement ctermfg=fg guifg=fg"
@@ -253,7 +258,6 @@ exec "highlight shSetList ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise
 exec "highlight pythonBuiltin ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
 exec "highlight pythonClassVar ctermfg=" . s:green.term . " guifg=" . s:green.hex
 exec "highlight pythonCoding ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
-exec "highlight pythonException ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
 exec "highlight pythonImport ctermfg=" . s:violet.term . " guifg=" . s:violet.hex
 exec "highlight pythonOperator ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
 exec "highlight pythonRepeat ctermfg=" . s:orange.term . " guifg=" . s:orange.hex
@@ -266,13 +270,11 @@ exec "highlight rspecGroupMethods ctermfg=" . s:blue.term . " guifg=" . s:blue.h
 exec "highlight rubyAccess ctermfg=" . s:khaki.term . " guifg=" . s:khaki.hex
 exec "highlight rubyAttribute ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
 exec "highlight rubyBlockParameter ctermfg=" . s:green.term . " guifg=" . s:green.hex
-exec "highlight rubyBoolean ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
 exec "highlight rubyCallback ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
 exec "highlight rubyClass ctermfg=" . s:orange.term . " guifg=" . s:orange.hex
 exec "highlight rubyControl ctermfg=" . s:coral.term . " guifg=" . s:coral.hex
 exec "highlight rubyDefine ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
 exec "highlight rubyEntities ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
-exec "highlight rubyException ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
 exec "highlight rubyExceptional ctermfg=" . s:coral.term . " guifg=" . s:coral.hex
 exec "highlight rubyInstanceVariable ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
 exec "highlight rubyInterpolationDelimiter ctermfg=" . s:violet.term . " guifg=" . s:violet.hex
@@ -288,11 +290,9 @@ exec "highlight rubyStringDelimiter ctermfg=" . s:wheat.term . " guifg=" . s:whe
 exec "highlight crystalAccess ctermfg=" . s:khaki.term . " guifg=" . s:khaki.hex
 exec "highlight crystalAttribute ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
 exec "highlight crystalBlockParameter ctermfg=" . s:green.term . " guifg=" . s:green.hex
-exec "highlight crystalBoolean ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
 exec "highlight crystalClass ctermfg=" . s:orange.term . " guifg=" . s:orange.hex
 exec "highlight crystalControl ctermfg=" . s:coral.term . " guifg=" . s:coral.hex
 exec "highlight crystalDefine ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
-exec "highlight crystalException ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
 exec "highlight crystalExceptional ctermfg=" . s:coral.term . " guifg=" . s:coral.hex
 exec "highlight crystalInstanceVariable ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
 exec "highlight crystalModule ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
@@ -303,7 +303,6 @@ exec "highlight crystalStringDelimiter ctermfg=" . s:wheat.term . " guifg=" . s:
 " Elixir
 exec "highlight eelixirDelimiter ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
 exec "highlight elixirBlockDefinition ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
-exec "highlight elixirBoolean ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
 exec "highlight elixirDefine ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
 exec "highlight elixirDocTest ctermfg=" . s:grey247.term . " guifg=" . s:grey247.hex
 exec "highlight elixirExUnitAssert ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
@@ -333,8 +332,6 @@ exec "highlight jsTemplateExpression ctermfg=" . s:turquoise.term . " guifg=" . 
 exec "highlight jsThis ctermfg=" . s:green.term . " guifg=" . s:green.hex
 
 " CoffeeScript
-exec "highlight coffeeBoolean ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
-exec "highlight coffeeException ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
 exec "highlight coffeeGlobal ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
 exec "highlight coffeeKeyword ctermfg=" . s:orange.term . " guifg=" . s:orange.hex
 exec "highlight coffeeObjAssign ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
@@ -342,19 +339,31 @@ exec "highlight coffeeSpecialIdent ctermfg=" . s:light_green.term . " guifg=" . 
 exec "highlight coffeeSpecialVar ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
 exec "highlight coffeeStatement ctermfg=" . s:coral.term . " guifg=" . s:coral.hex
 
-" TypeScript
+" TypeScript (leafgarland/typescript-vim)
 exec "highlight typescriptBraces ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
 exec "highlight typescriptDOMObjects ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
-exec "highlight typescriptExceptions ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
+exec "highlight typescriptFuncComma ctermfg=" . s:white.term . " guifg=" . s:white.hex
 exec "highlight typescriptFuncKeyword ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
 exec "highlight typescriptGlobalObjects ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
 exec "highlight typescriptIdentifier ctermfg=" . s:green.term . " guifg=" . s:green.hex
 exec "highlight typescriptNull ctermfg=" . s:khaki.term . " guifg=" . s:khaki.hex
 exec "highlight typescriptOpSymbols ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
 exec "highlight typescriptOperator ctermfg=" . s:crimson.term . " guifg=" . s:crimson.hex
-exec "highlight typescriptParens ctermfg=" . s:blue.term . " guifg=" . s:blue.hex
-exec "highlight typescriptReserved ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
+exec "highlight typescriptParens ctermfg=" . s:white.term . " guifg=" . s:white.hex
+exec "highlight typescriptReserved ctermfg=" . s:magenta.term . " guifg=" . s:magenta.hex
 exec "highlight typescriptStorageClass ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
+
+" TypeScript (HerringtonDarkholme/yats.vim)
+exec "highlight typeScriptBraces ctermfg=" . s:white.term . " guifg=" . s:white.hex
+exec "highlight typescriptBOMLocationMethod ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
+exec "highlight typescriptBOMWindowProp ctermfg=" . s:emerald.term . " guifg=" . s:emerald.hex
+exec "highlight typescriptCall ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
+exec "highlight typescriptDOMDocMethod ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
+exec "highlight typescriptDOMNodeMethod ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
+exec "highlight typescriptObjectLabel ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
+exec "highlight typescriptStringMethod ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
+exec "highlight typescriptVariable ctermfg=" . s:light_green.term . " guifg=" . s:light_green.hex
+exec "highlight typescriptXHRMethod ctermfg=" . s:light_blue.term . " guifg=" . s:light_blue.hex
 
 " PureScript
 exec "highlight purescriptClass ctermfg=" . s:orange.term . " guifg=" . s:orange.hex
