@@ -98,7 +98,7 @@ exec "highlight Function ctermfg=" . s:light_blue.term . " guifg=" . s:light_blu
 exec "highlight String ctermfg=" . s:wheat.term . " guifg=" . s:wheat.hex
 
 " Identifiers.
-exec "highlight Identifier ctermfg=" . s:wheat.term . "6 guifg=" . s:turquoise.hex
+exec "highlight Identifier ctermfg=" . s:turquoise.term . " guifg=" . s:turquoise.hex
 
 " Color of titles, e.g in HTML files and Tagbar.
 exec "highlight Title ctermfg=" . s:orange.term . " guifg=" . s:orange.hex . " gui=none"
@@ -186,7 +186,7 @@ else
 endif
 exec "highlight lCursor ctermfg=bg ctermbg=" . s:grey247.term . " guifg=bg guibg=" . s:grey247.hex
 if g:moonflyCursorLineNr
-    exec "highlight CursorLineNr ctermbg=" . s:grey234.term . " guibg=" . s:cursorline.hex . " ctermfg=" . s:blue.term . " guifg=" . s:blue.hex . " gui=none"
+    exec "highlight CursorLineNr ctermbg=" . s:cursorline.term . " guibg=" . s:cursorline.hex . " ctermfg=" . s:blue.term . " guifg=" . s:blue.hex . " gui=none"
 else
     exec "highlight CursorLineNr ctermbg=" . s:grey234.term . " guibg=" . s:grey234.hex . " ctermfg=" . s:grey247.term . " guifg=" . s:grey247.hex . " gui=none"
 endif
